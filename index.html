@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prof. Anass CHERRAFI — EST-Safi, Université Cadi Ayyad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal:    #0b5e6e;
+  --teal2:   #0e7a8f;
+  --teal3:   #e4f4f7;
+  --amber:   #d97706;
+  --amber2:  #f59e0b;
+  --amber3:  #fef3c7;
+  --bg:      #f8f9fb;
+  --white:   #ffffff;
+  --dark:    #1a2332;
+  --dark2:   #2d3f55;
+  --mid:     #4a6280;
+  --light:   #8fa6bf;
+  --border:  #dde5ee;
+  --shadow:  rgba(11,94,110,0.10);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--dark);overflow-x:hidden;}
+
+/* ── SCROLL BAR ── */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--teal2);border-radius:3px;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5rem;height:68px;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 2px 20px rgba(0,0,0,0.05);
+}
+.nav-logo{
+  display:flex;align-items:center;gap:12px;text-decoration:none;
+}
+.nav-logo-icon{
+  width:40px;height:40px;border-radius:8px;
+  background:var(--teal);display:flex;align-items:center;justify-content:center;
+  font-family:'JetBrains Mono',monospace;font-weight:500;
+  color:#fff;font-size:0.75rem;letter-spacing:0.03em;
+}
+.nav-logo-text{
+  font-weight:700;font-size:1rem;color:var(--dark);
+  line-height:1.1;
+}
+.nav-logo-text span{display:block;font-size:0.72rem;font-weight:400;color:var(--mid);}
+.nav-links{display:flex;align-items:center;gap:0.3rem;list-style:none;}
+.nav-links a{
+  font-size:0.85rem;font-weight:500;color:var(--mid);
+  text-decoration:none;padding:0.5rem 0.9rem;border-radius:6px;
+  transition:all 0.2s;
+}
+.nav-links a:hover{color:var(--teal);background:var(--teal3);}
+.nav-btn-student{
+  background:var(--teal);color:#fff !important;
+  padding:0.5rem 1.2rem !important;border-radius:6px !important;
+  font-weight:600 !important;transition:background 0.2s !important;
+}
+.nav-btn-student:hover{background:var(--teal2) !important;color:#fff !important;}
+
+/* ── HERO ── */
+header{
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:8rem 5rem 4rem;
+  background:linear-gradient(150deg,#f0f8fa 0%,var(--bg) 60%);
+  position:relative;overflow:hidden;
+}
+.hero-decor{
+  position:absolute;right:-80px;top:-80px;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(11,94,110,0.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-decor2{
+  position:absolute;left:-40px;bottom:-40px;
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(217,119,6,0.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-inner{
+  max-width:1200px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 420px;gap:5rem;align-items:center;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--teal3);border:1px solid rgba(11,94,110,0.2);
+  border-radius:50px;padding:0.4rem 1rem;
+  font-size:0.78rem;font-weight:600;color:var(--teal);
+  letter-spacing:0.04em;margin-bottom:1.5rem;
+}
+.hero-badge::before{
+  content:'';width:7px;height:7px;border-radius:50%;
+  background:var(--teal2);animation:pulse 2s ease infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(1.3);}}
+h1{
+  font-family:'Outfit',sans-serif;
+  font-weight:800;font-size:clamp(2.5rem,4.5vw,3.8rem);
+  line-height:1.05;color:var(--dark);margin-bottom:0.4rem;
+}
+.hero-title-sub{
+  font-family:'Lora',serif;font-style:italic;
+  font-size:clamp(1.1rem,2vw,1.5rem);color:var(--teal);
+  margin-bottom:1.5rem;font-weight:400;
+}
+.hero-desc{
+  font-size:1.05rem;font-weight:300;color:var(--mid);
+  line-height:1.9;max-width:560px;margin-bottom:2.5rem;
+}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-primary{
+  background:var(--teal);color:#fff;
+  padding:0.9rem 2rem;border-radius:8px;
+  font-weight:600;font-size:0.9rem;text-decoration:none;
+  transition:all 0.2s;box-shadow:0 4px 16px rgba(11,94,110,0.25);
+}
+.btn-primary:hover{background:var(--teal2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(11,94,110,0.3);}
+.btn-secondary{
+  background:var(--white);color:var(--teal);
+  padding:0.9rem 2rem;border-radius:8px;
+  font-weight:600;font-size:0.9rem;text-decoration:none;
+  border:1.5px solid var(--teal);
+  transition:all 0.2s;
+}
+.btn-secondary:hover{background:var(--teal3);}
+
+/* Profile card */
+.profile-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:20px;padding:2.5rem;
+  box-shadow:0 8px 40px var(--shadow);
+  animation:fadeUp 0.7s 0.3s ease both;
+}
+.profile-avatar{
+  width:100px;height:100px;border-radius:50%;
+  background:linear-gradient(135deg,var(--teal) 0%,var(--teal2) 100%);
+  margin:0 auto 1.2rem;display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:2rem;color:#fff;
+  box-shadow:0 6px 20px rgba(11,94,110,0.3);
+}
+.profile-name{
+  font-weight:800;font-size:1.2rem;text-align:center;
+  color:var(--dark);margin-bottom:0.3rem;
+}
+.profile-role{
+  font-size:0.82rem;color:var(--teal);text-align:center;
+  font-weight:600;letter-spacing:0.04em;margin-bottom:0.3rem;
+}
+.profile-inst{
+  font-size:0.8rem;color:var(--mid);text-align:center;margin-bottom:1.5rem;
+}
+.profile-stats{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:var(--border);border-radius:12px;overflow:hidden;
+  border:1px solid var(--border);margin-bottom:1.5rem;
+}
+.pstat{
+  background:var(--white);padding:1rem;text-align:center;
+}
+.pstat-num{font-weight:800;font-size:1.6rem;color:var(--teal);line-height:1;}
+.pstat-lbl{font-size:0.7rem;color:var(--light);text-transform:uppercase;letter-spacing:0.07em;margin-top:0.2rem;}
+.profile-contact{display:flex;flex-direction:column;gap:0.6rem;}
+.pcontact-item{
+  display:flex;align-items:center;gap:10px;
+  font-size:0.82rem;color:var(--mid);
+}
+.pcontact-icon{
+  width:28px;height:28px;border-radius:6px;
+  background:var(--teal3);display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.pcontact-icon svg{width:14px;stroke:var(--teal);}
+
+/* ── SECTION WRAPPER ── */
+.section-wrap{max-width:1200px;margin:0 auto;padding:6rem 5rem;}
+.section-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--amber3);border-radius:4px;
+  padding:0.3rem 0.8rem;font-size:0.72rem;font-weight:700;
+  color:var(--amber);letter-spacing:0.1em;text-transform:uppercase;
+  margin-bottom:1rem;font-family:'JetBrains Mono',monospace;
+}
+h2{
+  font-weight:800;font-size:clamp(1.8rem,3vw,2.6rem);
+  color:var(--dark);margin-bottom:0.8rem;line-height:1.15;
+}
+.section-sub{
+  font-size:1rem;color:var(--mid);font-weight:300;
+  line-height:1.8;max-width:600px;margin-bottom:3rem;
+}
+
+/* ── ABOUT ── */
+#apropos{background:var(--white);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.about-block h3{
+  font-weight:700;font-size:1.1rem;color:var(--dark);
+  margin-bottom:1rem;padding-bottom:0.6rem;
+  border-bottom:2px solid var(--teal3);
+}
+.about-block p{
+  font-size:0.97rem;color:var(--mid);line-height:1.9;
+  font-weight:300;margin-bottom:1.2rem;
+}
+.expertise-grid{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.5rem;}
+.etag{
+  background:var(--teal3);color:var(--teal);
+  padding:0.4rem 0.9rem;border-radius:6px;
+  font-size:0.78rem;font-weight:600;
+  border:1px solid rgba(11,94,110,0.15);
+  transition:all 0.2s;
+}
+.etag:hover{background:var(--teal);color:#fff;}
+.research-items{display:flex;flex-direction:column;gap:1rem;}
+.res-item{
+  display:flex;align-items:flex-start;gap:12px;
+  background:var(--bg);border-radius:10px;padding:1rem 1.2rem;
+  border:1px solid var(--border);
+}
+.res-dot{
+  width:32px;height:32px;border-radius:8px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;
+}
+.res-item h4{font-weight:600;font-size:0.92rem;color:var(--dark);margin-bottom:0.2rem;}
+.res-item p{font-size:0.8rem;color:var(--mid);line-height:1.5;}
+
+/* ── COURS ── */
+#cours{background:var(--bg);}
+.filter-row{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+.fbtn{
+  padding:0.5rem 1.2rem;border-radius:6px;cursor:pointer;
+  font-size:0.8rem;font-weight:600;letter-spacing:0.04em;
+  border:1.5px solid var(--border);background:var(--white);color:var(--mid);
+  font-family:'Outfit',sans-serif;transition:all 0.2s;
+}
+.fbtn.active,.fbtn:hover{background:var(--teal);border-color:var(--teal);color:#fff;}
+.cours-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;}
+.cours-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:14px;padding:1.8rem;
+  transition:all 0.25s;cursor:pointer;
+  position:relative;overflow:hidden;
+}
+.cours-card:hover{border-color:var(--teal2);transform:translateY(-4px);box-shadow:0 12px 40px var(--shadow);}
+.cours-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.2rem;}
+.cours-icon{
+  width:48px;height:48px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;font-size:1.4rem;
+}
+.cours-level{
+  font-family:'JetBrains Mono',monospace;font-size:0.65rem;
+  letter-spacing:0.12em;text-transform:uppercase;
+  padding:0.3rem 0.7rem;border-radius:4px;font-weight:500;
+}
+.lv-dut{background:#e0f0ff;color:#1a6fc4;}
+.lv-lp{background:#e8faf0;color:#1a9654;}
+.lv-m{background:#f0e8ff;color:#6a3fb5;}
+.lv-all{background:var(--amber3);color:var(--amber);}
+.cours-title{font-weight:700;font-size:1.05rem;color:var(--dark);margin-bottom:0.6rem;line-height:1.3;}
+.cours-desc{font-size:0.85rem;color:var(--mid);line-height:1.7;margin-bottom:1.4rem;}
+.cours-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:1rem;border-top:1px solid var(--border);
+}
+.cours-meta{font-size:0.75rem;color:var(--light);font-family:'JetBrains Mono',monospace;}
+.cours-link{
+  font-size:0.78rem;font-weight:600;color:var(--teal);
+  text-decoration:none;display:flex;align-items:center;gap:4px;
+  transition:gap 0.2s;
+}
+.cours-link:hover{gap:8px;}
+
+/* ── PUBLICATIONS ── */
+#publications{background:var(--white);}
+.pub-grid{display:grid;grid-template-columns:1fr;gap:1rem;}
+.pub-card{
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:12px;padding:1.6rem 2rem;
+  display:grid;grid-template-columns:80px 1fr;gap:1.5rem;align-items:start;
+  transition:all 0.2s;
+}
+.pub-card:hover{border-color:var(--teal2);background:var(--white);box-shadow:0 4px 20px var(--shadow);}
+.pub-year-box{
+  background:var(--teal);color:#fff;border-radius:10px;
+  padding:0.7rem 0;text-align:center;
+  font-weight:800;font-size:1.2rem;font-family:'Outfit',sans-serif;
+}
+.pub-body {}
+.pub-title{font-weight:600;font-size:0.97rem;color:var(--dark);margin-bottom:0.5rem;line-height:1.5;}
+.pub-venue{font-size:0.8rem;color:var(--mid);font-style:italic;margin-bottom:0.7rem;}
+.pub-tags{display:flex;gap:0.5rem;flex-wrap:wrap;}
+.pub-tag{
+  background:var(--teal3);color:var(--teal);
+  font-size:0.68rem;font-weight:600;letter-spacing:0.05em;
+  padding:0.25rem 0.6rem;border-radius:4px;
+}
+
+/* ── ESPACE ETUDIANT ── */
+#espace{background:var(--bg);}
+.etudiant-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:20px;overflow:hidden;
+  box-shadow:0 8px 40px var(--shadow);
+}
+.etudiant-header{
+  background:linear-gradient(135deg,var(--teal) 0%,var(--teal2) 100%);
+  padding:3rem;color:#fff;
+  display:flex;align-items:center;gap:2rem;
+}
+.etudiant-header-icon{
+  width:70px;height:70px;border-radius:16px;
+  background:rgba(255,255,255,0.15);
+  display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0;
+}
+.etudiant-header h3{font-weight:700;font-size:1.5rem;margin-bottom:0.4rem;}
+.etudiant-header p{opacity:0.85;font-size:0.9rem;font-weight:300;}
+
+/* Login form */
+#loginSection{padding:3rem;display:flex;align-items:center;justify-content:center;}
+.login-box{max-width:400px;width:100%;text-align:center;}
+.login-box h4{font-weight:700;font-size:1.2rem;color:var(--dark);margin-bottom:0.5rem;}
+.login-box p{font-size:0.88rem;color:var(--mid);margin-bottom:2rem;}
+.login-field{
+  width:100%;padding:0.9rem 1.2rem;margin-bottom:1rem;
+  border:1.5px solid var(--border);border-radius:8px;
+  font-size:0.95rem;font-family:'Outfit',sans-serif;
+  color:var(--dark);outline:none;transition:border-color 0.2s;background:var(--bg);
+}
+.login-field:focus{border-color:var(--teal);}
+.login-btn{
+  width:100%;padding:0.9rem;border-radius:8px;
+  background:var(--teal);color:#fff;border:none;
+  font-size:0.95rem;font-weight:600;font-family:'Outfit',sans-serif;
+  cursor:pointer;transition:all 0.2s;
+}
+.login-btn:hover{background:var(--teal2);}
+.login-error{color:#dc2626;font-size:0.82rem;margin-top:-0.5rem;margin-bottom:0.8rem;display:none;}
+.login-hint{
+  margin-top:1.2rem;font-size:0.78rem;color:var(--light);
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:6px;padding:0.7rem 1rem;
+}
+
+/* Student content */
+#studentContent{padding:2rem 3rem 3rem;display:none;}
+.student-welcome{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);
+}
+.student-welcome h4{font-weight:700;font-size:1.1rem;color:var(--dark);}
+.student-welcome p{font-size:0.82rem;color:var(--mid);}
+.logout-btn{
+  background:none;border:1.5px solid var(--border);border-radius:6px;
+  padding:0.4rem 1rem;font-size:0.8rem;color:var(--mid);
+  cursor:pointer;font-family:'Outfit',sans-serif;font-weight:500;
+  transition:all 0.2s;
+}
+.logout-btn:hover{border-color:var(--teal);color:var(--teal);}
+.student-tabs{display:flex;gap:0.5rem;margin-bottom:2rem;flex-wrap:wrap;}
+.stab{
+  padding:0.5rem 1.2rem;border-radius:6px;cursor:pointer;
+  font-size:0.82rem;font-weight:600;border:1.5px solid var(--border);
+  background:var(--bg);color:var(--mid);font-family:'Outfit',sans-serif;
+  transition:all 0.2s;
+}
+.stab.active,.stab:hover{background:var(--teal);border-color:var(--teal);color:#fff;}
+.student-panel{display:none;}
+.student-panel.active{display:block;}
+.resource-list{display:flex;flex-direction:column;gap:0.8rem;}
+.resource-item{
+  display:flex;align-items:center;gap:14px;
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:10px;padding:1rem 1.2rem;
+  transition:all 0.2s;cursor:pointer;
+}
+.resource-item:hover{border-color:var(--teal2);background:var(--teal3);}
+.resource-icon{
+  width:40px;height:40px;border-radius:8px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+}
+.ri-pdf{background:#fee2e2;}
+.ri-ppt{background:#fde8cc;}
+.ri-td{background:#dbeafe;}
+.ri-vid{background:#d1fae5;}
+.resource-info{flex:1;}
+.resource-info h5{font-weight:600;font-size:0.9rem;color:var(--dark);margin-bottom:0.15rem;}
+.resource-info p{font-size:0.75rem;color:var(--light);}
+.resource-dl{
+  font-size:0.75rem;font-weight:600;color:var(--teal);
+  background:var(--teal3);padding:0.35rem 0.8rem;border-radius:5px;
+}
+.announce-list{display:flex;flex-direction:column;gap:1rem;}
+.announce-item{
+  border-left:3px solid var(--teal);
+  background:var(--bg);border-radius:0 10px 10px 0;
+  padding:1rem 1.2rem;border-top:1px solid var(--border);
+  border-right:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+.announce-item.urgent{border-left-color:var(--amber);}
+.announce-date{font-size:0.72rem;color:var(--light);font-family:'JetBrains Mono',monospace;margin-bottom:0.3rem;}
+.announce-title{font-weight:600;font-size:0.9rem;color:var(--dark);margin-bottom:0.3rem;}
+.announce-body{font-size:0.82rem;color:var(--mid);line-height:1.6;}
+
+/* ── CONTACT ── */
+#contact{background:var(--teal);}
+.contact-inner{max-width:1200px;margin:0 auto;padding:5rem;}
+.contact-inner h2{color:#fff;margin-bottom:0.5rem;}
+.contact-inner .section-sub{color:rgba(255,255,255,0.75);margin-bottom:3rem;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.cinfo-items{display:flex;flex-direction:column;gap:1.5rem;}
+.cinfo-item{display:flex;align-items:flex-start;gap:14px;}
+.cinfo-icon{
+  width:44px;height:44px;border-radius:10px;flex-shrink:0;
+  background:rgba(255,255,255,0.12);
+  display:flex;align-items:center;justify-content:center;
+}
+.cinfo-icon svg{width:20px;stroke:#fff;}
+.cinfo-item h4{font-size:0.78rem;font-weight:600;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem;}
+.cinfo-item p,.cinfo-item a{font-size:0.95rem;color:#fff;text-decoration:none;}
+.contact-form{background:var(--white);border-radius:16px;padding:2.5rem;}
+.cform-group{display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;}
+.cform-group label{font-size:0.75rem;font-weight:600;color:var(--mid);text-transform:uppercase;letter-spacing:0.08em;}
+.cform-group input,.cform-group textarea{
+  background:var(--bg);border:1.5px solid var(--border);
+  border-radius:8px;padding:0.8rem 1rem;
+  color:var(--dark);font-family:'Outfit',sans-serif;font-size:0.92rem;
+  outline:none;transition:border-color 0.2s;
+}
+.cform-group input:focus,.cform-group textarea:focus{border-color:var(--teal);}
+.cform-group textarea{resize:vertical;min-height:110px;}
+.cform-btn{
+  width:100%;padding:0.9rem;border-radius:8px;border:none;
+  background:var(--teal);color:#fff;font-size:0.95rem;font-weight:600;
+  cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.2s;
+}
+.cform-btn:hover{background:var(--teal2);}
+
+/* ── FOOTER ── */
+footer{
+  text-align:center;padding:1.8rem;
+  background:var(--dark);color:rgba(255,255,255,0.4);font-size:0.8rem;
+}
+footer a{color:var(--teal3);text-decoration:none;}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.hero-badge{animation:fadeUp 0.6s 0.1s ease both;}
+h1{animation:fadeUp 0.6s 0.2s ease both;}
+.hero-title-sub{animation:fadeUp 0.6s 0.3s ease both;}
+.hero-desc{animation:fadeUp 0.6s 0.35s ease both;}
+.hero-btns{animation:fadeUp 0.6s 0.45s ease both;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:0 1.5rem;}
+  .nav-links li:not(:last-child){display:none;}
+  .hero-inner,.about-grid,.contact-grid{grid-template-columns:1fr;gap:3rem;}
+  .section-wrap,.contact-inner{padding:4rem 1.5rem;}
+  header{padding:7rem 1.5rem 3rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-icon">AC</div>
+    <div class="nav-logo-text">
+      Prof. Anass CHERRAFI
+      <span>EST-Safi · Université Cadi Ayyad</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#apropos">À propos</a></li>
+    <li><a href="#cours">Cours</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#espace" class="nav-btn-student">🔐 Espace Étudiant</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header>
+  <div class="hero-decor"></div>
+  <div class="hero-decor2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">Professeur Associé · EST-Safi · UCA</div>
+      <h1>Anass<br>CHERRAFI</h1>
+      <p class="hero-title-sub">Génie Industriel & Supply Chain Management</p>
+      <p class="hero-desc">
+        Enseignant-chercheur à l'École Supérieure de Technologie de Safi, Université Cadi Ayyad. Mes travaux portent sur le Lean Six Sigma, l'Industrie 4.0, l'économie circulaire et l'excellence opérationnelle dans les systèmes industriels.
+      </p>
+      <div class="hero-btns">
+        <a href="#cours" class="btn-primary">📚 Accéder aux cours</a>
+        <a href="#publications" class="btn-secondary">📄 Publications</a>
+      </div>
+    </div>
+    <div class="profile-card">
+      <div class="profile-avatar">AC</div>
+      <div class="profile-name">Prof. Anass CHERRAFI</div>
+      <div class="profile-role">Associate Professor — Ph.D. Génie Industriel</div>
+      <div class="profile-inst">EST-Safi · Université Cadi Ayyad · Marrakech-Safi, Maroc</div>
+      <div class="profile-stats">
+        <div class="pstat">
+          <div class="pstat-num">5 600+</div>
+          <div class="pstat-lbl">Citations</div>
+        </div>
+        <div class="pstat">
+          <div class="pstat-num">40+</div>
+          <div class="pstat-lbl">Publications</div>
+        </div>
+        <div class="pstat">
+          <div class="pstat-num">9+</div>
+          <div class="pstat-lbl">Ans d'expérience</div>
+        </div>
+        <div class="pstat">
+          <div class="pstat-num">4</div>
+          <div class="pstat-lbl">Modules enseignés</div>
+        </div>
+      </div>
+      <div class="profile-contact">
+        <div class="pcontact-item">
+          <div class="pcontact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          a.cherrafi@uca.ac.ma
+        </div>
+        <div class="pcontact-item">
+          <div class="pcontact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          EST-Safi, Safi — Maroc
+        </div>
+        <div class="pcontact-item">
+          <div class="pcontact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          Permanences : Mar & Jeu 14h–16h
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- À PROPOS -->
+<section id="apropos">
+  <div class="section-wrap" style="padding-top:6rem;padding-bottom:6rem;">
+    <div class="section-badge">01 — À propos</div>
+    <h2>Parcours &amp; Domaines de recherche</h2>
+    <div class="about-grid">
+      <div class="about-block">
+        <h3>Biographie</h3>
+        <p>
+          Anass Cherrafi est Professeur Associé au département Génie Industriel de l'École Supérieure de Technologie de Safi (EST-Safi), Université Cadi Ayyad, Marrakech-Safi, Maroc. Titulaire d'un doctorat en Génie Industriel, il cumule plus de neuf ans d'expérience en industrie et en enseignement.
+        </p>
+        <p>
+          Ses recherches portent sur l'intégration du Lean Six Sigma avec les technologies de l'Industrie 4.0, l'économie circulaire appliquée aux supply chains et le management de la durabilité dans les systèmes industriels complexes. Ses travaux sont publiés dans des revues internationales de premier plan et sont cités plus de 5 600 fois.
+        </p>
+        <p>
+          Il collabore avec des universités partenaires au Royaume-Uni (Northumbria University, University of Derby), en Italie (University of Verona) et en Afrique du Sud (University of Johannesburg).
+        </p>
+        <div class="expertise-grid">
+          <span class="etag">Lean Six Sigma</span>
+          <span class="etag">Industrie 4.0</span>
+          <span class="etag">Supply Chain</span>
+          <span class="etag">Économie circulaire</span>
+          <span class="etag">Green Manufacturing</span>
+          <span class="etag">Qualité &amp; Management</span>
+          <span class="etag">CLSS4.0</span>
+          <span class="etag">Excellence opérationnelle</span>
+          <span class="etag">Durabilité industrielle</span>
+        </div>
+      </div>
+      <div class="about-block">
+        <h3>Axes de recherche</h3>
+        <div class="research-items">
+          <div class="res-item">
+            <div class="res-dot" style="background:#e0f5f1;">🏭</div>
+            <div>
+              <h4>Lean Six Sigma &amp; Industrie 4.0 (LSS4.0)</h4>
+              <p>Intégration des outils Lean Six Sigma avec les technologies numériques (IoT, Big Data, IA) pour l'amélioration de la performance industrielle.</p>
+            </div>
+          </div>
+          <div class="res-item">
+            <div class="res-dot" style="background:#fef0e0;">♻️</div>
+            <div>
+              <h4>Économie Circulaire &amp; Supply Chain Durable</h4>
+              <p>Modélisation et optimisation des chaînes d'approvisionnement circulaires et durables dans un contexte d'Industry 4.0.</p>
+            </div>
+          </div>
+          <div class="res-item">
+            <div class="res-dot" style="background:#e8e0fe;">🌱</div>
+            <div>
+              <h4>Green Manufacturing</h4>
+              <p>Réduction de l'empreinte environnementale des systèmes de production grâce aux approches CLSS4.0 (Circular Lean Six Sigma 4.0).</p>
+            </div>
+          </div>
+          <div class="res-item">
+            <div class="res-dot" style="background:#e0f0ff;">📊</div>
+            <div>
+              <h4>Management de la Qualité Totale</h4>
+              <p>Systèmes de management qualité intégrés, contrôle statistique des procédés, bibliométrie et analyses systématiques de littérature.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURS -->
+<section id="cours" style="background:var(--bg);">
+  <div class="section-wrap">
+    <div class="section-badge">02 — Enseignement</div>
+    <h2>Cours en ligne</h2>
+    <p class="section-sub">Supports pédagogiques des modules dispensés à l'EST-Safi. Les ressources complètes sont disponibles dans l'Espace Étudiant sécurisé.</p>
+    <div class="filter-row">
+      <button class="fbtn active" onclick="filterC('all',this)">Tous les modules</button>
+      <button class="fbtn" onclick="filterC('DUT',this)">DUT / Licence</button>
+      <button class="fbtn" onclick="filterC('LP',this)">Licence Pro</button>
+      <button class="fbtn" onclick="filterC('M',this)">Master</button>
+    </div>
+    <div class="cours-grid">
+
+      <!-- Santé et Sécurité -->
+      <div class="cours-card" data-lv="DUT">
+        <div class="cours-card-top">
+          <div class="cours-icon" style="background:#fee2e2;">🦺</div>
+          <span class="cours-level lv-dut">DUT / L</span>
+        </div>
+        <div class="cours-title">Santé et Sécurité au Travail</div>
+        <div class="cours-desc">
+          Législation HSE, analyse des risques professionnels, méthodes AMDEC et HACCP, équipements de protection individuelle, gestion des accidents du travail et culture sécurité en entreprise.
+        </div>
+        <div class="cours-footer">
+          <span class="cours-meta">10 chapitres · 40h</span>
+          <a href="#espace" class="cours-link">Accéder →</a>
+        </div>
+      </div>
+
+      <!-- Gestion de Production -->
+      <div class="cours-card" data-lv="DUT">
+        <div class="cours-card-top">
+          <div class="cours-icon" style="background:#dbeafe;">⚙️</div>
+          <span class="cours-level lv-dut">DUT / L</span>
+        </div>
+        <div class="cours-title">Gestion de la Production</div>
+        <div class="cours-desc">
+          Planification et ordonnancement de la production, MRP/MRP II, gestion des stocks et approvisionnements, méthodes de prévision, JAT, Kanban et flux tirés en milieu industriel.
+        </div>
+        <div class="cours-footer">
+          <span class="cours-meta">12 chapitres · 48h</span>
+          <a href="#espace" class="cours-link">Accéder →</a>
+        </div>
+      </div>
+
+      <!-- Analyse Vibratoire -->
+      <div class="cours-card" data-lv="LP">
+        <div class="cours-card-top">
+          <div class="cours-icon" style="background:#fde8cc;">〰️</div>
+          <span class="cours-level lv-lp">Licence Pro</span>
+        </div>
+        <div class="cours-title">Analyse Vibratoire</div>
+        <div class="cours-desc">
+          Fondamentaux des vibrations mécaniques, analyse spectrale, transformée de Fourier, diagnostic vibratoire des machines tournantes, maintenance conditionnelle par surveillance vibratoire.
+        </div>
+        <div class="cours-footer">
+          <span class="cours-meta">9 chapitres · 36h</span>
+          <a href="#espace" class="cours-link">Accéder →</a>
+        </div>
+      </div>
+
+      <!-- Qualité -->
+      <div class="cours-card" data-lv="M">
+        <div class="cours-card-top">
+          <div class="cours-icon" style="background:#f0e8ff;">🏆</div>
+          <span class="cours-level lv-m">Master</span>
+        </div>
+        <div class="cours-title">Concepts et Outils de la Qualité</div>
+        <div class="cours-desc">
+          Démarche qualité totale (TQM), outils qualité (Ishikawa, Pareto, PDCA, 5S, SPC), certification ISO 9001:2015, Six Sigma DMAIC, audit qualité et amélioration continue.
+        </div>
+        <div class="cours-footer">
+          <span class="cours-meta">11 chapitres · 44h</span>
+          <a href="#espace" class="cours-link">Accéder →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications" style="background:var(--white);">
+  <div class="section-wrap">
+    <div class="section-badge">03 — Recherche</div>
+    <h2>Publications scientifiques</h2>
+    <p class="section-sub">Sélection de publications récentes dans des revues à comité de lecture indexées. Plus de 5 600 citations sur Google Scholar.</p>
+    <div class="pub-grid">
+
+      <div class="pub-card">
+        <div class="pub-year-box">2024</div>
+        <div class="pub-body">
+          <div class="pub-title">Integrating Lean Six Sigma and Industry 4.0: a design science research-based LSS4.0 framework for operational excellence</div>
+          <div class="pub-venue">Production Planning &amp; Control — Taylor &amp; Francis, Vol. 36</div>
+          <div class="pub-tags">
+            <span class="pub-tag">LSS4.0</span>
+            <span class="pub-tag">Industry 4.0</span>
+            <span class="pub-tag">Lean Six Sigma</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-year-box">2024</div>
+        <div class="pub-body">
+          <div class="pub-title">Lean Six Sigma and Industry 4.0 implementation framework for operational excellence: a case study</div>
+          <div class="pub-venue">Total Quality Management &amp; Business Excellence — Vol. 35, No. 9–10, pp. 1015–1053</div>
+          <div class="pub-tags">
+            <span class="pub-tag">LSS4.0</span>
+            <span class="pub-tag">Excellence opérationnelle</span>
+            <span class="pub-tag">Étude de cas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-year-box">2024</div>
+        <div class="pub-body">
+          <div class="pub-title">Analysis of factors influencing Circular-Lean-Six Sigma 4.0 implementation considering sustainability implications: an exploratory study</div>
+          <div class="pub-venue">International Journal of Production Research — Vol. 62, pp. 3890–3917</div>
+          <div class="pub-tags">
+            <span class="pub-tag">CLSS4.0</span>
+            <span class="pub-tag">Durabilité</span>
+            <span class="pub-tag">Économie circulaire</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-year-box">2023</div>
+        <div class="pub-body">
+          <div class="pub-title">Analyzing the integrated effect of circular economy, Lean Six Sigma, and Industry 4.0 on sustainable manufacturing performance</div>
+          <div class="pub-venue">Business Strategy and the Environment — Wiley Online Library</div>
+          <div class="pub-tags">
+            <span class="pub-tag">Économie circulaire</span>
+            <span class="pub-tag">Manufacturing durable</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-year-box">2023</div>
+        <div class="pub-body">
+          <div class="pub-title">Industry 4.0 and Lean Six Sigma integration in manufacturing: a literature review, an integrated framework and proposed research perspectives</div>
+          <div class="pub-venue">Quality Engineering — Taylor &amp; Francis, pp. 16–40</div>
+          <div class="pub-tags">
+            <span class="pub-tag">Revue de littérature</span>
+            <span class="pub-tag">Industry 4.0</span>
+            <span class="pub-tag">Lean Six Sigma</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-year-box">2022</div>
+        <div class="pub-body">
+          <div class="pub-title">Lean Six Sigma and Industry 4.0 combination: scoping review and perspectives</div>
+          <div class="pub-venue">Total Quality Management &amp; Business Excellence — Vol. 34, No. 3–4, pp. 261–290</div>
+          <div class="pub-tags">
+            <span class="pub-tag">Scoping review</span>
+            <span class="pub-tag">LSS</span>
+            <span class="pub-tag">I4.0</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ESPACE ÉTUDIANT SÉCURISÉ -->
+<section id="espace" style="background:var(--bg);">
+  <div class="section-wrap">
+    <div class="section-badge">04 — Accès réservé</div>
+    <h2>Espace Étudiant</h2>
+    <p class="section-sub">Accès réservé aux étudiants inscrits. Connectez-vous pour accéder aux cours, TD, annonces et ressources pédagogiques.</p>
+    <div class="etudiant-card">
+      <div class="etudiant-header">
+        <div class="etudiant-header-icon">🎓</div>
+        <div>
+          <h3>Portail Étudiant — EST-Safi</h3>
+          <p>Cours · TD/TP · Annonces · Ressources pédagogiques · Emploi du temps</p>
+        </div>
+      </div>
+
+      <!-- LOGIN -->
+      <div id="loginSection">
+        <div class="login-box">
+          <h4>🔐 Connexion requise</h4>
+          <p>Entrez vos identifiants pour accéder aux ressources pédagogiques.</p>
+          <input type="text" id="loginUser" class="login-field" placeholder="Identifiant étudiant (ex: EST2025)">
+          <div class="login-error" id="loginError">❌ Identifiant ou mot de passe incorrect.</div>
+          <input type="password" id="loginPass" class="login-field" placeholder="Mot de passe">
+          <button class="login-btn" onclick="doLogin()">Se connecter →</button>
+          <div class="login-hint">
+            💡 <strong>Démo :</strong> Identifiant <code>etudiant</code> · Mot de passe <code>EST2025</code><br>
+            <small>Contactez votre enseignant si vous avez perdu vos accès.</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTENU ÉTUDIANT (affiché après login) -->
+      <div id="studentContent">
+        <div class="student-welcome">
+          <div>
+            <h4>👋 Bienvenue dans votre espace personnel</h4>
+            <p>EST-Safi · Université Cadi Ayyad · Prof. Anass CHERRAFI</p>
+          </div>
+          <button class="logout-btn" onclick="doLogout()">Se déconnecter</button>
+        </div>
+
+        <div class="student-tabs">
+          <button class="stab active" onclick="showPanel('p-cours',this)">📚 Cours &amp; Supports</button>
+          <button class="stab" onclick="showPanel('p-td',this)">📝 TD / TP</button>
+          <button class="stab" onclick="showPanel('p-annonces',this)">📢 Annonces</button>
+          <button class="stab" onclick="showPanel('p-exams',this)">📋 Examens</button>
+        </div>
+
+        <!-- Panel Cours -->
+        <div class="student-panel active" id="p-cours">
+          <div class="resource-list">
+            <div class="resource-item">
+              <div class="resource-icon ri-pdf">📄</div>
+              <div class="resource-info">
+                <h5>Santé &amp; Sécurité au Travail — Cours Complet (Chapitres 1–5)</h5>
+                <p>PDF · 85 pages · Mis à jour le 10 Jan 2025</p>
+              </div>
+              <span class="resource-dl">📥 PDF</span>
+            </div>
+            <div class="resource-item">
+              <div class="resource-icon ri-ppt">📊</div>
+              <div class="resource-info">
+                <h5>Gestion de la Production — Slides CM1 à CM6</h5>
+                <p>PowerPoint · 12 présentations · Mis à jour le 15 Fév 2025</p>
+              </div>
+              <span class="resource-dl">📥 PPT</span>
+            </div>
+            <div class="resource-item">
+              <div class="resource-icon ri-pdf">📄</div>
+              <div class="resource-info">
+                <h5>Analyse Vibratoire — Polycopié de cours</h5>
+                <p>PDF · 62 pages · Semestre 2 – 2024/2025</p>
+              </div>
+              <span class="resource-dl">📥 PDF</span>
+            </div>
+            <div class="resource-item">
+              <div class="resource-icon ri-vid">🎬</div>
+              <div class="resource-info">
+                <h5>Concepts &amp; Outils Qualité — Cours enregistrés (Séances 1–4)</h5>
+                <p>Vidéo MP4 · 4 séances · ~3h de contenu</p>
+              </div>
+              <span class="resource-dl">▶ Voir</span>
+            </div>
+            <div class="resource-item">
+              <div class="resource-icon ri-pdf">📄</div>
+              <div class="resource-info">
+                <h5>Qualité ISO 9001:2015 — Guide pratique et check-list</h5>
+                <p>PDF · 28 pages · Ressource complémentaire</p>
+              </div>
+              <span class="resource-dl">📥 PDF</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel TD -->
+        <div class="student-panel" id="p-td">
+          <div class="resource-list">
+            <div class="resource-item">
+              <div class="resource-icon ri-td">✏️</div>
+              <div class="resource-info">
+                <h5>TD1 — Santé &amp; Sécurité : Analyse des risques (méthode AMDEC)</h5>
+                <p>PDF avec corrigé · Semaine 4</p>
+              </div>
+              <span class="resource-dl">📥 PDF</span>
+            </div>
+            <div class="resource-item">
+              <div class="resource-icon ri-td">✏️</div>
+              <div class="resource-info">
+                <h5>TD2 — Gestion de Production : MRP — Calcul des besoins nets</h5>
+                <p>PDF · Semaine 6 · Corrigé disponible le 20 Mar</p>
+              </div>
+              <span class="resource-dl">📥 PDF</span>
+            </div>
+            <div class="resource-item">
+              <div class="resource-icon ri-td">✏️</div>
+              <div class="resource-info">
+                <h5>TP Analyse Vibratoire — Mesure et interprétation des spectres</h5>
+                <p>Notice TP · Laboratoire de mécanique · Groupe A&amp;B</p>
+              </div>
+              <span class="resource-dl">📥 PDF</span>
+            </div>
+            <div class="resource-item">
+              <div class="resource-icon ri-td">✏️</div>
+              <div class="resource-info">
+                <h5>TD Qualité — Carte de contrôle Xbar-R et diagramme de Pareto</h5>
+                <p>Excel + énoncé · Données industrielles réelles</p>
+              </div>
+              <span class="resource-dl">📥 Excel</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel Annonces -->
+        <div class="student-panel" id="p-annonces">
+          <div class="announce-list">
+            <div class="announce-item urgent">
+              <div class="announce-date">🔴 20 Mai 2025</div>
+              <div class="announce-title">Examen de rattrapage — Gestion de la Production</div>
+              <div class="announce-body">L'examen de rattrapage aura lieu le Samedi 31 Mai 2025 à 9h00, Salle A12. Documents autorisés : fiche formulaire fournie. Durée : 2h.</div>
+            </div>
+            <div class="announce-item">
+              <div class="announce-date">📘 12 Mai 2025</div>
+              <div class="announce-title">Nouveau support — Analyse Vibratoire Chapitres 7&amp;8 disponibles</div>
+              <div class="announce-body">Les supports de cours des chapitres 7 (Analyse modale) et 8 (Maintenance conditionnelle) sont désormais disponibles dans l'onglet "Cours &amp; Supports".</div>
+            </div>
+            <div class="announce-item">
+              <div class="announce-date">📋 05 Mai 2025</div>
+              <div class="announce-title">Planning des soutenances PFE — Session Juin 2025</div>
+              <div class="announce-body">Le calendrier des soutenances de Projets de Fin d'Études est disponible auprès du secrétariat. Les étudiants encadrés par Prof. Cherrafi sont convoqués du 16 au 20 Juin 2025.</div>
+            </div>
+            <div class="announce-item">
+              <div class="announce-date">🎓 28 Avr 2025</div>
+              <div class="announce-title">Offre de thèse de doctorat en Génie Industriel &amp; Logistique</div>
+              <div class="announce-body">Une opportunité de thèse en Génie Industriel et Logistique est ouverte pour candidats installés dans la région Marrakech-Safi. Dossiers à déposer avant le 30 Juin 2025. Contactez directement Prof. Cherrafi.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel Examens -->
+        <div class="student-panel" id="p-exams">
+          <div class="resource-list">
+            <div class="resource-item">
+              <div class="resource-icon ri-pdf">📋</div>
+              <div class="resource-info">
+                <h5>Annales Qualité — Examens 2022/2023 &amp; 2023/2024</h5>
+                <p>PDF avec corrigés · 4 sujets disponibles</p>
+              </div>
+              <span class="resource-dl">📥 PDF</span>
+            </div>
+            <div class="resource-item">
+              <div class="resource-icon ri-pdf">📋</div>
+              <div class="resource-info">
+                <h5>Annales Gestion de Production — 3 sessions précédentes</h5>
+                <p>PDF · Corrigés partiels disponibles</p>
+              </div>
+              <span class="resource-dl">📥 PDF</span>
+            </div>
+            <div class="resource-item">
+              <div class="resource-icon ri-pdf">📋</div>
+              <div class="resource-info">
+                <h5>Sujet type Santé &amp; Sécurité — Session Jan 2025</h5>
+                <p>PDF · Questions de cours + étude de cas</p>
+              </div>
+              <span class="resource-dl">📥 PDF</span>
+            </div>
+            <div class="resource-item">
+              <div class="resource-icon ri-td">📋</div>
+              <div class="resource-info">
+                <h5>Formulaire autorisé — Analyse Vibratoire</h5>
+                <p>PDF · 2 pages · Document officiel pour l'examen</p>
+              </div>
+              <span class="resource-dl">📥 PDF</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div id="contact">
+  <div class="contact-inner">
+    <div class="section-badge" style="background:rgba(255,255,255,0.15);color:#fff;border:none;">05 — Contact</div>
+    <h2>Prendre contact</h2>
+    <p class="section-sub">Pour toute question relative à l'enseignement, à la recherche ou à des opportunités de collaboration académique.</p>
+    <div class="contact-grid">
+      <div class="cinfo-items">
+        <div class="cinfo-item">
+          <div class="cinfo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div>
+            <h4>Email institutionnel</h4>
+            <a href="mailto:a.cherrafi@uca.ac.ma">a.cherrafi@uca.ac.ma</a>
+          </div>
+        </div>
+        <div class="cinfo-item">
+          <div class="cinfo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>
+            <h4>Adresse</h4>
+            <p>EST-Safi, Route Sidi Bouzid<br>B.P. 89, Safi — Maroc</p>
+          </div>
+        </div>
+        <div class="cinfo-item">
+          <div class="cinfo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div>
+            <h4>Permanences</h4>
+            <p>Mardi &amp; Jeudi : 14h00 – 16h00<br>Bureau : Département GI</p>
+          </div>
+        </div>
+        <div class="cinfo-item">
+          <div class="cinfo-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+          <div>
+            <h4>Profils académiques</h4>
+            <p>
+              <a href="https://scholar.google.com/citations?user=bZM8GPAAAAAJ" target="_blank" style="color:rgba(255,255,255,0.8);">Google Scholar</a> &nbsp;·&nbsp;
+              <a href="https://www.researchgate.net/profile/Cherrafi-Anass" target="_blank" style="color:rgba(255,255,255,0.8);">ResearchGate</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="cform-group">
+          <label>Nom complet</label>
+          <input type="text" placeholder="Votre nom">
+        </div>
+        <div class="cform-group">
+          <label>Email</label>
+          <input type="email" placeholder="votre@email.com">
+        </div>
+        <div class="cform-group">
+          <label>Sujet</label>
+          <input type="text" placeholder="Objet de votre message">
+        </div>
+        <div class="cform-group">
+          <label>Message</label>
+          <textarea placeholder="Votre message..."></textarea>
+        </div>
+        <button class="cform-btn" onclick="alert('Message envoyé. Prof. Cherrafi vous répondra dans les meilleurs délais.')">Envoyer le message ✉️</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2025 Prof. Anass CHERRAFI — EST-Safi, <a href="https://www.uca.ac.ma" target="_blank">Université Cadi Ayyad</a> · Marrakech-Safi, Maroc<br>
+  <small>ORCID: 0000-0003-2106-6909 · a.cherrafi@uca.ac.ma</small>
+</footer>
+
+<script>
+/* --- FILTER COURS --- */
+function filterC(lv, btn){
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.cours-card').forEach(c=>{
+    const show = lv==='all'||c.dataset.lv===lv;
+    c.style.display=show?'block':'none';
+  });
+}
+
+/* --- SCROLL ANIMATION --- */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.opacity='1';
+      e.target.style.transform='translateY(0)';
+    }
+  });
+},{threshold:0.08});
+document.querySelectorAll('.cours-card,.pub-card,.res-item,.announce-item,.resource-item').forEach(el=>{
+  el.style.opacity='0';
+  el.style.transform='translateY(16px)';
+  el.style.transition='opacity 0.45s ease, transform 0.45s ease';
+  obs.observe(el);
+});
+
+/* --- LOGIN --- */
+const USERS={'etudiant':'EST2025','cherrafi':'admin2025'};
+function doLogin(){
+  const u=document.getElementById('loginUser').value.trim();
+  const p=document.getElementById('loginPass').value;
+  const err=document.getElementById('loginError');
+  if(USERS[u]&&USERS[u]===p){
+    document.getElementById('loginSection').style.display='none';
+    document.getElementById('studentContent').style.display='block';
+    err.style.display='none';
+  }else{
+    err.style.display='block';
+    document.getElementById('loginPass').value='';
+  }
+}
+document.getElementById('loginPass').addEventListener('keypress',e=>{if(e.key==='Enter')doLogin();});
+document.getElementById('loginUser').addEventListener('keypress',e=>{if(e.key==='Enter')doLogin();});
+
+function doLogout(){
+  document.getElementById('loginSection').style.display='flex';
+  document.getElementById('studentContent').style.display='none';
+  document.getElementById('loginUser').value='';
+  document.getElementById('loginPass').value='';
+}
+
+/* --- TABS ETUDIANT --- */
+function showPanel(id,btn){
+  document.querySelectorAll('.stab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.student-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+</script>
+</body>
+</html>
